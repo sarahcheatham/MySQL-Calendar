@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS posts, users;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
   id INT NOT NULL AUTO_INCREMENT,
@@ -9,16 +9,14 @@ CREATE TABLE users (
   PRIMARY KEY (id)
 );
 
+SHOW INDEX FROM users;
+DROP TABLE IF EXISTS posts;
+
 CREATE TABLE posts (
   id INT NOT NULL AUTO_INCREMENT,
-  user_id INT NOT NULL,
+  user_id INT, PRIMARY KEY(id), FOREIGN KEY (user_id) REFERENCES users (id) ON UPDATE CASCADE ON DELETE SET NULL,
   date VARCHAR(50),
   time VARCHAR(50),
   location VARCHAR(50),
-  description VARCHAR(255),
-  PRIMARY KEY (id),
-  FOREIGN KEY (user_id)
-  REFERENCES users (id)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE
+  description VARCHAR(255)
 );
