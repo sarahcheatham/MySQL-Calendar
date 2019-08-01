@@ -3,7 +3,7 @@ const pool = require('../sql/connection')
 const { handleSQLError } = require('../sql/error')
 
 const getAllUserPosts = (req, res) => {
-  // SELECT ALL USERS
+  // SELECT ALL USERS POSTS
   pool.query('SELECT * FROM posts WHERE ?', {user_id: `${req.params.id}`}, (err, rows) => {
     if (err){
       return handleSQLError(res, err)
@@ -21,9 +21,9 @@ const getPostById = (req, res) => {
 }
 
 const createPost = (req, res) => {
-  pool.query('INSERT INTO posts SET ?', {date: `${req.body.date}`, time: `${req.body.time}`, location: `${req.body.location}`, description: `${req.body.description}`}, (err, results) => {
+  pool.query('INSERT INTO posts SET ?', { user_id: `${req.params.id}`, date: `${req.body.date}`, time: `${req.body.time}`, location: `${req.body.location}`, description: `${req.body.description}`}, (err, results) => {
     if (err) return handleSQLError(res, err)
-    return res.json({});
+    return res.json({ newId: results.insertId });
   })
 }
 
