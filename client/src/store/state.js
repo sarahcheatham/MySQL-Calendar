@@ -2,12 +2,12 @@ const storeState = {
     users: {
         loading: false,
         error: null,
-        users: []
+        userArr: []
     },
     posts: {
         loading: false,
         error: null,
-        posts: []
+        postArr: []
     }
 }
 

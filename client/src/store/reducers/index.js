@@ -21,14 +21,14 @@ const users = (state = storeState, action) => {
             return {
                 ...state, 
                 loading: false,
-                users: action.payload.users
+                userArr: action.payload.userArr
             }
         case FETCH_USERS_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.payload.error,
-                users: []
+                userArr: []
             };
         default:
             return state;
@@ -46,14 +46,14 @@ const posts = (state = storeState, action) => {
             return {
                 ...state,
                 loading: false,
-                posts: action.payload.posts
+                postArr: action.payload.postArr
             };
         case FETCH_POSTS_FAILURE:
             return {
                 ...state,
                 loading: false,
                 error: action.payload.error,
-                posts: []
+                postArr: []
             };
         default: 
             return state;

@@ -1,16 +1,24 @@
 import React from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import { loadPosts, createPost } from '../store/actions';
 import FormHeader from './FormHeader';
 
 class Form extends React.Component{
-    state = {
-        posts: [],
-        date: "",
-        time: "",
-        location: "",
-        desc: "",
-        show: false,
+    constructor(props){
+        super(props);
+        this.state = {
+            posts: [],
+            date: "",
+            time: "",
+            location: "",
+            desc: "",
+            show: false,
+        }
+    }
+    
+
+    componentDidMount(){
+        console.log(this.props)
     }
 
     handleFormChange = e => {
@@ -24,14 +32,27 @@ class Form extends React.Component{
     handleFormSubmit = e => {
         e.preventDefault();
         
-        const id = this.props.posts.posts.posts.length + 1;
         const date = this.props.date;
         const time = this.state.time;
         const location = this.state.location;
         const description = this.state.desc;
         const userId = 1;
 
-        this.props.createPost({ id, date, time, location, description, userId })
+        // this.props.createPost(userId, { ...date, time, location, description })
+        let options = {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({ date, time, location, description })
+        }
+        fetch(`/users/${userId}/posts`, options).then((res)=>{
+            return res.json()
+        }).then((res)=>{
+            console.log("response:", res)
+        }).catch((err)=>{
+            console.log("error:", err)
+        })
+        this.props.loadPosts(userId)
+
     }
 
     renderForm(){
@@ -70,20 +91,25 @@ class Form extends React.Component{
 
 const mapStateToProps = state => {
     return {
+        users: {
+            loading: state.users.loading,
+            error: state.users.error,
+            userArr: state.users.userArr
+        },
         posts: {
-            loading: state.loading,
-            error: state.error,
-            posts: state.posts
+            loading: state.posts.loading,
+            error: state.posts.error,
+            postArr: state.posts.postArr
         }
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        loadPosts: () => dispatch(loadPosts()),
-        createPost: newPost => dispatch(createPost(newPost))
+        loadPosts: (userId) => dispatch(loadPosts(userId)),
+        createPost: (userId, newPost) => dispatch(createPost(newPost))
     }
 }
 
-// export default connect(mapStateToProps, mapDispatchToProps) (Form);
-export default Form;
+export default connect(mapStateToProps, mapDispatchToProps) (Form);
+// export default Form;

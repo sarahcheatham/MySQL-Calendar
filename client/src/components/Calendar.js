@@ -1,5 +1,7 @@
 import React from 'react';
 import dateFns from 'date-fns';
+import { connect } from 'react-redux';
+import { loadPosts } from '../store/actions/index';
 
 class Calendar extends React.Component {
     state = {
@@ -7,6 +9,19 @@ class Calendar extends React.Component {
         selectedDate: new Date(),
         events: []
     };
+
+    componentDidMount(){
+        this.props.loadPosts(1)
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        console.log("prevState:", prevState.events)
+        console.log("props:", this.props.posts.postArr)
+        if(prevProps.posts.postArr !== this.props.posts.postArr ){
+            //not empty
+            this.setState({events: this.props.posts.postArr})
+        }
+    }
 
     renderHeader(){
         const dateFormat = "MMMM YYYY";
@@ -46,17 +61,10 @@ class Calendar extends React.Component {
 
     formatEvents(){
         const format = "ddd MMM DD YYYY";
+        // console.log(this.state.events)
+
         // uncomment when connected to the database
-        // const events = this.props.posts.posts.map(item => {
-        //     const date = dateFns.format(item.date, format)
-        //     const id = item.id;
-        //     const location = item.location;
-        //     const time = item.time;
-        //     const description = item.description
-        //     return {id, date, time, location, description}
-        // });
-        // uncomment when not connected to database
-        const events = this.props.fakeData.map(item => {
+        const events = this.state.events.map(item => {
             const date = dateFns.format(item.date, format)
             const id = item.id;
             const location = item.location;
@@ -64,6 +72,15 @@ class Calendar extends React.Component {
             const description = item.description
             return {id, date, time, location, description}
         });
+        // uncomment when not connected to database
+        // const events = this.props.fakeData.map(item => {
+        //     const date = dateFns.format(item.date, format)
+        //     const id = item.id;
+        //     const location = item.location;
+        //     const time = item.time;
+        //     const description = item.description
+        //     return {id, date, time, location, description}
+        // });
         return events
     }
 
@@ -192,4 +209,20 @@ class Calendar extends React.Component {
     }
 }
 
-export default Calendar;
+const mapStateToProps = state => {
+    return {
+        posts: {
+            loading: state.posts.loading,
+            error: state.posts.error,
+            postArr: state.posts.postArr
+        }
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        loadPosts: userId => dispatch(loadPosts(userId))
+    }
+}
+export default connect(mapStateToProps, mapDispatchToProps) (Calendar);
+// export default Calendar;
