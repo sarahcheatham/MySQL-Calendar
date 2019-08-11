@@ -40,11 +40,13 @@ class Header extends React.Component {
 }
 const mapStateToProps = state => {
     return {
-        users: {
-            loading: state.users.loading,
-            error: state.users.error,
-            userArr: state.users.userArr
-        }
+        users: state.users,
+        // posts: state.posts
+        // users: {
+        //     loading: state.users.loading,
+        //     error: state.users.error,
+        //     userArr: state.users.userArr
+        // }
     }
     
 }

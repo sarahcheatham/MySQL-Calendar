@@ -91,16 +91,18 @@ class Form extends React.Component{
 
 const mapStateToProps = state => {
     return {
-        users: {
-            loading: state.users.loading,
-            error: state.users.error,
-            userArr: state.users.userArr
-        },
-        posts: {
-            loading: state.posts.loading,
-            error: state.posts.error,
-            postArr: state.posts.postArr
-        }
+        users: state.users,
+        posts: state.posts
+        // users: {
+        //     loading: state.users.loading,
+        //     error: state.users.error,
+        //     userArr: state.users.userArr
+        // },
+        // posts: {
+        //     loading: state.posts.loading,
+        //     error: state.posts.error,
+        //     postArr: state.posts.postArr
+        // }
     }
 }
 
