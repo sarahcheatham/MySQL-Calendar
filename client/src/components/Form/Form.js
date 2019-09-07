@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { toggleDropDown } from '../../store/actions';
 import { loadPosts, createPost } from '../../store/actions/postActions';
 import FormHeader from './FormHeader';
-import { Link } from 'react-router-dom';
 
 class Form extends React.Component{
     constructor(props){
@@ -78,9 +77,6 @@ class Form extends React.Component{
                 <FormHeader/>
                 <button id="createButton" onClick={this.handleFormShow}>{signToShow}</button>
                 {this.props.dropDown && form}
-                <button id="edit-table-btn" type="button"> 
-                    <Link to={"/calendar/edit"}>Edit Calendar</Link> 
-                </button> 
             </div>
         )
     }

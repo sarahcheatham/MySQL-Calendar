@@ -147,6 +147,13 @@ header {
 #empty-span{
   grid-column: 2 / 3;
   background: var(--evening-blue);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#edit-table-btn{
+  height: 60%;
+  width: 90%;
 }
   
 #user-calendar-header .icon {
