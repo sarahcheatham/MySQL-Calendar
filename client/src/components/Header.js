@@ -27,7 +27,7 @@ class Header extends React.Component {
     // const userName = props.user.map(u => u.first_name)
     render(){
         const user = this.state.user.map(u => u.first_name)
-        console.log("user:", user)
+        // console.log("user:", user)
         // const userName = this.props.fakeData[0]
         // let userName = 'Sarah';
         return (
@@ -38,8 +38,7 @@ class Header extends React.Component {
     }
     
 }
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state => ({
         users: state.users,
         // posts: state.posts
         // users: {
@@ -47,9 +46,7 @@ const mapStateToProps = state => {
         //     error: state.users.error,
         //     userArr: state.users.userArr
         // }
-    }
-    
-}
+})
 
 export default connect(mapStateToProps)(Header);
 // export default Header;

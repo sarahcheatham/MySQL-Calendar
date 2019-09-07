@@ -21,6 +21,7 @@ const getPostById = (req, res) => {
 }
 
 const createPost = (req, res) => {
+  console.log("REQPARAMS:", req.params.id)
   pool.query('INSERT INTO posts SET ?', { user_id: `${req.params.id}`, date: `${req.body.date}`, time: `${req.body.time}`, location: `${req.body.location}`, description: `${req.body.description}`}, (err, results) => {
     if (err) return handleSQLError(res, err)
     return res.json({ newId: results.insertId });

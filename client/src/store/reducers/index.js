@@ -7,9 +7,10 @@ import {
     FETCH_POSTS_BEGIN,
     FETCH_POSTS_SUCCESS,
     FETCH_POSTS_FAILURE,
+    TOGGLE_DROP_DOWN
 } from '../actions';
 
-const users = (state = storeState, action) => {
+const users = (state = storeState.users, action) => {
     switch(action.type){
         case FETCH_USERS_BEGIN:
             return {
@@ -34,7 +35,8 @@ const users = (state = storeState, action) => {
             return state;
     }
 }
-const posts = (state = storeState, action) => {
+
+const posts = (state = storeState.posts, action) => {
     switch(action.type){
         case FETCH_POSTS_BEGIN:
             return {
@@ -60,9 +62,17 @@ const posts = (state = storeState, action) => {
     }
 }
 
+const dropDown = (state = storeState.dropDown, action) => {
+    switch(action.type){
+        case TOGGLE_DROP_DOWN:
+            return !state
+        default:
+            return state
+    }
+}
 
 const rootReducer = combineReducers({
-    users, posts
+    users, posts, dropDown
 });
 
 export default rootReducer;

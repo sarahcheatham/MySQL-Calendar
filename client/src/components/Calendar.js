@@ -15,8 +15,8 @@ class Calendar extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        console.log("prevState:", prevState.events)
-        console.log("props:", this.props.posts.postArr)
+        // console.log("prevState:", prevState.events)
+        // console.log("props:", this.props.posts.postArr)
         if(prevProps.posts.postArr !== this.props.posts.postArr ){
             //not empty
             this.setState({events: this.props.posts.postArr})
