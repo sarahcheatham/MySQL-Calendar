@@ -8,7 +8,8 @@ const storeState = {
         loading: false,
         error: null,
         postArr: []
-    }
+    },
+    dropDown: false
 }
 
 export default storeState;

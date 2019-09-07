@@ -33,7 +33,7 @@ import { loadUsers, loadPosts } from './store/actions';
   }
   
   render(){
-    console.log(this.props)
+    // console.log(this.props)
     return (
       <div className="App">
         {/* <Header user={this.state.user} fakeData={this.state.fakeData}/> */}

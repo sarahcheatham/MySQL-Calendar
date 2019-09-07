@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { loadPosts, createPost } from '../store/actions';
+import { loadPosts, createPost, toggleDropDown } from '../store/actions';
 import FormHeader from './FormHeader';
 
 class Form extends React.Component{
@@ -26,7 +26,8 @@ class Form extends React.Component{
     }
     
     handleFormShow = e => {
-        this.setState({show: true})
+        this.props.toggleDropDown()
+        console.log(this.props.dropDown)
     }
 
     handleFormSubmit = e => {
@@ -38,20 +39,11 @@ class Form extends React.Component{
         const description = this.state.desc;
         const userId = 1;
 
-        // this.props.createPost(userId, { ...date, time, location, description })
-        let options = {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({ date, time, location, description })
-        }
-        fetch(`/users/${userId}/posts`, options).then((res)=>{
-            return res.json()
-        }).then((res)=>{
-            console.log("response:", res)
-        }).catch((err)=>{
-            console.log("error:", err)
-        })
+        const newPost = { userId, date, time, location, description };
+    
+        this.props.createPost(userId, newPost)
         this.props.loadPosts(userId)
+        
 
     }
 
@@ -79,11 +71,13 @@ class Form extends React.Component{
         )
     }
     render(){
+        const form = this.renderForm();
+       
         return (
             <div id="formContainer">
                 <FormHeader/>
                 <button id="createButton" onClick={this.handleFormShow}> + </button>
-                {this.state.show ? this.renderForm() : <div></div>}
+                {this.props.dropDown && form}
             </div>
         )
     }
@@ -92,26 +86,18 @@ class Form extends React.Component{
 const mapStateToProps = state => {
     return {
         users: state.users,
-        posts: state.posts
-        // users: {
-        //     loading: state.users.loading,
-        //     error: state.users.error,
-        //     userArr: state.users.userArr
-        // },
-        // posts: {
-        //     loading: state.posts.loading,
-        //     error: state.posts.error,
-        //     postArr: state.posts.postArr
-        // }
+        posts: state.posts,
+        dropDown: state.dropDown 
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         loadPosts: (userId) => dispatch(loadPosts(userId)),
-        createPost: (userId, newPost) => dispatch(createPost(newPost))
+        createPost: (userId, newPost) => dispatch(createPost(userId, newPost)),
+        toggleDropDown: () => dispatch(toggleDropDown())
     }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps) (Form);
-// export default Form;
+

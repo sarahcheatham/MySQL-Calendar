@@ -41,7 +41,6 @@ export const loadUsers = () => {
 
 
 //posts fetch
-
 export const FETCH_POSTS_BEGIN = "FETCH_POSTS_BEGIN";
 export const FETCH_POSTS_SUCCESS = "FETCH_POSTS_SUCCESS";
 export const FETCH_POSTS_FAILURE = "FETCH_POSTS_FAILURE";
@@ -118,6 +117,14 @@ export const deletePost = (userId, postId, post) => {
             body: JSON.stringify(post)
         })
         .then(()=> dispatch(loadPosts(userId)))
+    }
+}
+
+export const TOGGLE_DROP_DOWN = "TOGGLE_DROP_DOWN";
+
+export const toggleDropDown = () => {
+    return {
+        type: TOGGLE_DROP_DOWN
     }
 }
 
