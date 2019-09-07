@@ -1,24 +1,19 @@
 import React from 'react';
+import "./Form.css";
 import { connect } from 'react-redux';
-import { loadPosts, createPost, toggleDropDown } from '../store/actions';
+import { toggleDropDown } from '../../store/actions';
+import { loadPosts, createPost } from '../../store/actions/postActions';
 import FormHeader from './FormHeader';
 
 class Form extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            posts: [],
-            date: "",
             time: "",
             location: "",
             desc: "",
             show: false,
         }
-    }
-    
-
-    componentDidMount(){
-        console.log(this.props)
     }
 
     handleFormChange = e => {
@@ -26,8 +21,8 @@ class Form extends React.Component{
     }
     
     handleFormShow = e => {
+        e.preventDefault();
         this.props.toggleDropDown()
-        console.log(this.props.dropDown)
     }
 
     handleFormSubmit = e => {
@@ -43,8 +38,11 @@ class Form extends React.Component{
     
         this.props.createPost(userId, newPost)
         this.props.loadPosts(userId)
-        
-
+        this.setState({ 
+            time: "",
+            location: "",
+            desc: ""
+        })
     }
 
     renderForm(){
@@ -52,7 +50,7 @@ class Form extends React.Component{
             <form id="form" onSubmit={this.handleFormSubmit}>
                     <label>
                         Date:
-                        <input className="formInput" type="text" style={{color: "var(--tumeric)"}} name="date" value={this.props.date} onChange={this.handleFormChange} placeholder={new Date()}/>
+                        <input className="formInput" type="text" style={{color: "var(--evening-blue)"}} name="date" value={this.props.date} onChange={this.handleFormChange} placeholder={new Date()}/>
                     </label>
                     <label>
                         Time:
@@ -72,11 +70,12 @@ class Form extends React.Component{
     }
     render(){
         const form = this.renderForm();
-       
+        let signToShow = "";
+        this.props.dropDown ? signToShow = " - " : signToShow = " + ";
         return (
             <div id="formContainer">
                 <FormHeader/>
-                <button id="createButton" onClick={this.handleFormShow}> + </button>
+                <button id="createButton" onClick={this.handleFormShow}>{signToShow}</button>
                 {this.props.dropDown && form}
             </div>
         )

@@ -1,4 +1,5 @@
 import React from 'react';
+import './Header.css'
 import { connect } from 'react-redux';
 
 class Header extends React.Component {
