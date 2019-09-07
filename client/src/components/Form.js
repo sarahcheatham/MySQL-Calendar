@@ -60,7 +60,7 @@ class Form extends React.Component{
             <form id="form" onSubmit={this.handleFormSubmit}>
                     <label>
                         Date:
-                        <input className="formInput" type="text" name="date" value={this.props.date} onChange={this.handleFormChange} placeholder={new Date()}/>
+                        <input className="formInput" type="text" style={{color: "var(--tumeric)"}} name="date" value={this.props.date} onChange={this.handleFormChange} placeholder={new Date()}/>
                     </label>
                     <label>
                         Time:
