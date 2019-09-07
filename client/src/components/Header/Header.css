@@ -1,0 +1,12 @@
+#user-calendar-header {
+    grid-column: 1 / 2;
+    font-size: 175%;
+    color: var(--evening-blue);
+    line-height: 1;
+    margin-bottom: 0%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background: var(--warm-white);
+}

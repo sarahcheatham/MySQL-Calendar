@@ -4,11 +4,13 @@ import {
     FETCH_USERS_BEGIN,
     FETCH_USERS_SUCCESS,
     FETCH_USERS_FAILURE,
+} from '../actions/userActions';
+import { TOGGLE_DROP_DOWN } from '../actions';
+import {
     FETCH_POSTS_BEGIN,
     FETCH_POSTS_SUCCESS,
     FETCH_POSTS_FAILURE,
-    TOGGLE_DROP_DOWN
-} from '../actions';
+} from '../actions/postActions';
 
 const users = (state = storeState.users, action) => {
     switch(action.type){
@@ -35,6 +37,7 @@ const users = (state = storeState.users, action) => {
             return state;
     }
 }
+
 
 const posts = (state = storeState.posts, action) => {
     switch(action.type){

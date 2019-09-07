@@ -1,7 +1,8 @@
 import React from 'react';
+import "./Calendar.css"
 import dateFns from 'date-fns';
 import { connect } from 'react-redux';
-import { loadPosts } from '../store/actions/index';
+import { loadPosts } from '../../store/actions/postActions';
 
 class Calendar extends React.Component {
     state = {
@@ -15,8 +16,6 @@ class Calendar extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState){
-        // console.log("prevState:", prevState.events)
-        // console.log("props:", this.props.posts.postArr)
         if(prevProps.posts.postArr !== this.props.posts.postArr ){
             //not empty
             this.setState({events: this.props.posts.postArr})
@@ -61,27 +60,17 @@ class Calendar extends React.Component {
 
     formatEvents(){
         const format = "ddd MMM DD YYYY";
-        // console.log(this.state.events)
 
-        // uncomment when connected to the database
         const events = this.state.events.map(item => {
             const date = dateFns.format(item.date, format)
             const id = item.id;
             const location = item.location;
             const time = item.time;
             const description = item.description
-            return {id, date, time, location, description}
+            return { id, date, time, location, description };
         });
-        // uncomment when not connected to database
-        // const events = this.props.fakeData.map(item => {
-        //     const date = dateFns.format(item.date, format)
-        //     const id = item.id;
-        //     const location = item.location;
-        //     const time = item.time;
-        //     const description = item.description
-        //     return {id, date, time, location, description}
-        // });
-        return events
+
+        return events;
     }
 
     renderActivity(activity, index){
@@ -199,6 +188,7 @@ class Calendar extends React.Component {
     };
 
     render(){
+        console.log(this.props)
         return (
             <div className="calendar">
                 {this.renderHeader()}
@@ -211,7 +201,6 @@ class Calendar extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        // users: state.users,
         posts: state.posts
     }
 }
@@ -221,5 +210,5 @@ const mapDispatchToProps = dispatch => {
         loadPosts: userId => dispatch(loadPosts(userId))
     }
 }
+
 export default connect(mapStateToProps, mapDispatchToProps) (Calendar);
-// export default Calendar;
