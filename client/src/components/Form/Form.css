@@ -3,11 +3,11 @@
     grid-column: 2 / 3;
     padding-left: 5%;
     padding-right: 5%;
-    background: var(--evening-blue);
     color: var(--warm-white);
     font-family: operetta-8, serif;
     font-weight: 200;
     font-style: normal;
+    background-color: var(--evening-blue);
 }
   
 #form{
@@ -28,20 +28,12 @@
 }
   
 #createButton{
-    margin-left: 5%;
-    margin-bottom: 0%;
-    border-radius: 1.5rem;
     background-color: var(--bluestone);
-    /* background-color: var(--navy); */
-    color: var(--warm-white);
-    font-size: 1.8rem;
-    padding: 0%;
-    width: 10%;
-    /* height: 10%; */
-   
-    /* font-family: operetta-8, serif;
-    font-weight: 200;
-    font-style: normal; */
+    color: var(--evening-blue);
+    /* color: var(--warm-white); */
+    font-size: 18px;
+    width: 100%;
+    height: 6%;
 }
   
 #formHeader{

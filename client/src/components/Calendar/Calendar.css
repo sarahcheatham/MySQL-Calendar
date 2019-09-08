@@ -28,7 +28,8 @@
 .calendar .header .icon:hover {
   transform: scale(1.75);
   transition: .25s ease-out;
-  color: var(--main-color);
+  color: var(--mermaid);
+  /* color: var(--main-color); */
 }
   
 .calendar .header .icon:first-of-type {

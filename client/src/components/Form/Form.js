@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { toggleDropDown } from '../../store/actions';
 import { loadPosts, createPost } from '../../store/actions/postActions';
 import FormHeader from './FormHeader';
+import { Button } from 'reactstrap';
 
 class Form extends React.Component{
     constructor(props){
@@ -74,8 +75,7 @@ class Form extends React.Component{
         this.props.dropDown ? signToShow = " - " : signToShow = " + ";
         return (
             <div id="formContainer">
-                <FormHeader/>
-                <button id="createButton" onClick={this.handleFormShow}>{signToShow}</button>
+                <Button id="createButton" onClick={this.handleFormShow}>CREATE A NEW EVENT{signToShow}</Button>
                 {this.props.dropDown && form}
             </div>
         )
