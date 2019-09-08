@@ -49,22 +49,22 @@ class Form extends React.Component{
         return (
             <form id="form" onSubmit={this.handleFormSubmit}>
                     <label>
-                        Date:
+                        DATE:
                         <input className="formInput" type="text" style={{color: "var(--evening-blue)"}} name="date" value={this.props.date} onChange={this.handleFormChange} placeholder={new Date()}/>
                     </label>
                     <label>
-                        Time:
+                        TIME:
                         <input className="formInput" type="text" name="time" onChange={this.handleFormChange}/>
                     </label>
                     <label>
-                        Location:
+                        LOCATION:
                         <input className="formInput" type="text" name="location" onChange={this.handleFormChange}/>
                     </label>
                     <label>
-                        Description:
+                        DESCRIPTION:
                         <input className="formInput" type="text" name="desc" onChange={this.handleFormChange} />
                     </label>
-                    <button id="formSubmit" type="submit" value="Submit">Submit</button>
+                    <button id="formSubmit" type="submit" value="Submit">SUBMIT</button>
                 </form>
         )
     }

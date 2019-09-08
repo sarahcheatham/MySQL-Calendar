@@ -22,17 +22,17 @@ class CalendarPage extends Component {
             color: "var(--eclipse)",
             backgroundColor: "var(--mermaid)",
             textDecoration: 'none',
-            fontFamily: "quasimoda, sans-serif",
+            fontFamily: "operetta-8, serif",
+            fontWeight: 500,
             fontStyle: "normal",
-            fontWeight: 300,
             fontSize: "18px"
         }
         return (
             <div className="App">
-                <Header/>
+                {/* <Header/> */}
                 <span id="empty-span">
                     <Button id="edit-table-btn" className="btn" type="button" style={editTableBtn}> 
-                        <Link to={"/calendar/edit"} style={editTableBtn}><img src={editIcon} style={{paddingBottom: 5}} height={"28px"}/>{" "}Edit Calendar</Link> 
+                        <Link to={"/calendar/edit"} style={editTableBtn}><img src={editIcon} style={{paddingBottom: 5}} height={"28px"}/>{" "}EDIT CALENDAR</Link> 
                     </Button>
                 </span>
                 <Calendar onDateSelect={this.selectDate}/> 

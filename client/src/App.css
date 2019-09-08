@@ -1,33 +1,3 @@
-/* FONT IMPORTS */
-.App{
-  display: grid;
-  grid-template-columns: 70% 30%;
-  grid-template-rows: 10% 90%;
-  background: var(--warm-white);
-  height: 100vh;
-}
-
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
-@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
-
-.icon {
-  font-family: 'Material Icons', serif;
-  font-style: normal;
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 1;
-  text-transform: none;
-  letter-spacing: normal;
-  word-wrap: normal;
-  white-space: nowrap;
-  direction: ltr;
-
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-  font-feature-settings: 'liga';
-}
-
 
 /* VARIABLES */
 
@@ -73,6 +43,40 @@
   --flamingo: #F9586B;
   --bluestone: #577284;
   /* height: 100vh; */
+  font-family: "proxima-nova, sans-serif";
+  font-style: "normal";
+  font-weight: 100;
+  /* font-size: 10px; */
+}
+
+/* FONT IMPORTS */
+.App{
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-template-rows: 10% 90%;
+  background: var(--warm-white);
+  height: 100vh;
+}
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+.icon {
+  font-family: 'Material Icons', serif;
+  font-style: normal;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  font-size: 1.8rem;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
 }
 
 /* GENERAL */
