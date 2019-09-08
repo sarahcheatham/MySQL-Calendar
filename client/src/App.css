@@ -30,23 +30,49 @@
   --fiesta-red: #de4d44;
   --jester-red: #9e3744;
   --princess-blue: #2e5d9f;
-  --evening-blue: #2A293E;
-  --galaxy-blue: #2A4B7C;
-  --vanilla-custard: #F3E0BE;
-  --sugar-almond: #935529;
-  --peach-pink: #FA9A85;
-  --guacamole: #797B3A;
-  --dark-cheddar: #E08119;
   --sunlight: #EDD59E;
   --ash: #A09998;
   --coral-pink: #E8A798;
   --flamingo: #F9586B;
-  --bluestone: #577284;
-  /* height: 100vh; */
+  --cranberry: rgb(187, 74, 77);
+  --merlot: rgb(114, 38, 44);
+  --summer-fig: rgb(190, 75, 59);
+  --cranapple: rgb(215, 126, 112);
+  --chili-pepper: rgb(155, 27, 48);
+  --biking-red: rgb(119, 33, 46);
+  --creme-de-peche: rgb(245, 214, 198);
+  --peach-pink: rgb(250, 154, 133);
+  --chicory-coffee: rgb(74, 52, 46);
+  --bluestone: rgb(87, 114, 132);
+  --galaxy-blue: rgb(42, 75, 124);
+  --hazel: rgb(174, 114, 80);
+  --antique-moss: rgb(185, 160, 35);
+  --forest-biome: rgb(24, 74, 69);
+  --rocky-road: rgb(90, 62, 54);
+  --fruit-dove: rgb(206, 91, 120);
+  --sugar-almond: rgb(147, 85, 41);
+  --dark-cheddar: rgb(224, 129, 25);
+  --butterscotch: rgb(225, 150, 64);
+  --grapeade: rgb(133, 103, 123);
+  --rutabaga: rgb(236, 221, 190);
+  --green-olive: rgb(141, 139, 85);
+  --evening-blue: rgb(42, 41, 62);
+  --orange-tiger: rgb(249, 103, 20);
+  --eden: rgb(38, 78, 54);
+  --vanilla-custard: rgb(243, 224,190);
+  --paloma: rgb(159, 156, 153);
+  --frost-gray: rgb(132, 130, 131);
+  --guacamole: rgb(121, 123, 58);
+
   font-family: "proxima-nova, sans-serif";
   font-style: "normal";
   font-weight: 100;
-  /* font-size: 10px; */
+
+  
+}
+/* removing focus border for inputs */
+input:focus, select:focus, button:focus {
+  outline: none !important;
 }
 
 /* FONT IMPORTS */

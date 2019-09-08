@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import CalendarPage from './pages/CalendarPage';
-import EditTable from './components/EditTable/EditTable';
+import CalendarPage from './pages/CalendarPage/CalendarPage';
+import EventTablePage from './pages/EventTablePage/EventTablePage';
 import fakeData from './api/calendar.json';
 import { connect } from 'react-redux';
 import { loadUsers } from './store/actions/userActions';
@@ -39,7 +39,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
         <Form onChange={this.selectDate} date={this.state.selectedDate}/> */}
           <Switch>
             <Route exact path="/" component={CalendarPage}/>
-            <Route path="/calendar/edit" component={EditTable}/>
+            <Route path="/events" component={EventTablePage}/>
           </Switch>
       </div>
       </Router>
