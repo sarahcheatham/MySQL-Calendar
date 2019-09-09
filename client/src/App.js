@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
-import Header from './components/Header/Header';
-import Calendar from './components/Calendar/Calendar';
-import Form from './components/Form/Form';
+import CalendarPage from './pages/CalendarPage/CalendarPage';
+import EventTablePage from './pages/EventTablePage/EventTablePage';
 import fakeData from './api/calendar.json';
 import { connect } from 'react-redux';
 import { loadUsers } from './store/actions/userActions';
 import { loadPosts } from './store/actions/postActions';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
  class App extends Component {
    constructor(){
@@ -25,18 +25,24 @@ import { loadPosts } from './store/actions/postActions';
     this.props.loadPosts(1);
   }
 
-  selectDate = date => {
-    this.setState({selectedDate: date.selectedDate})
-  }
+  // selectDate = date => {
+  //   this.setState({selectedDate: date.selectedDate})
+  // }
   
   render(){
     return (
-      <div className="App">
-        <Header/>
+      <Router>
+      <div className="calendar-app">
+        {/* <Header/>
         <span id="empty-span"></span>
         <Calendar onDateSelect={this.selectDate}/>
-        <Form onChange={this.selectDate} date={this.state.selectedDate}/>
+        <Form onChange={this.selectDate} date={this.state.selectedDate}/> */}
+          <Switch>
+            <Route exact path="/" component={CalendarPage}/>
+            <Route path="/events" component={EventTablePage}/>
+          </Switch>
       </div>
+      </Router>
     );
   }
 }

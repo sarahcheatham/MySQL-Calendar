@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import { toggleDropDown } from '../../store/actions';
 import { loadPosts, createPost } from '../../store/actions/postActions';
 import FormHeader from './FormHeader';
+import { Button } from 'reactstrap';
+import downIcon from '../../icons/drop-down-icon.svg';
+import upIcon from '../../icons/up-icon.svg';
 
 class Form extends React.Component{
     constructor(props){
@@ -49,33 +52,32 @@ class Form extends React.Component{
         return (
             <form id="form" onSubmit={this.handleFormSubmit}>
                     <label>
-                        Date:
+                        DATE:
                         <input className="formInput" type="text" style={{color: "var(--evening-blue)"}} name="date" value={this.props.date} onChange={this.handleFormChange} placeholder={new Date()}/>
                     </label>
                     <label>
-                        Time:
+                        TIME:
                         <input className="formInput" type="text" name="time" onChange={this.handleFormChange}/>
                     </label>
                     <label>
-                        Location:
+                        LOCATION:
                         <input className="formInput" type="text" name="location" onChange={this.handleFormChange}/>
                     </label>
                     <label>
-                        Description:
+                        DESCRIPTION:
                         <input className="formInput" type="text" name="desc" onChange={this.handleFormChange} />
                     </label>
-                    <button id="formSubmit" type="submit" value="Submit">Submit</button>
+                    <button id="formSubmit" type="submit" value="Submit">SUBMIT</button>
                 </form>
         )
     }
     render(){
         const form = this.renderForm();
-        let signToShow = "";
-        this.props.dropDown ? signToShow = " - " : signToShow = " + ";
+        let iconToShow = "";
+        this.props.dropDown ? iconToShow = upIcon : iconToShow = downIcon;
         return (
             <div id="formContainer">
-                <FormHeader/>
-                <button id="createButton" onClick={this.handleFormShow}>{signToShow}</button>
+                <Button id="createButton" onClick={this.handleFormShow}><img src={iconToShow} style={{paddingBottom: 5}} height={"36px"}/>CREATE A NEW EVENT</Button>
                 {this.props.dropDown && form}
             </div>
         )

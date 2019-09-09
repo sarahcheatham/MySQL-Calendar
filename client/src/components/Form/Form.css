@@ -3,8 +3,11 @@
     grid-column: 2 / 3;
     padding-left: 5%;
     padding-right: 5%;
-    background: var(--evening-blue);
     color: var(--warm-white);
+    font-family: operetta-8, serif;
+    font-weight: 200;
+    font-style: normal;
+    background-color: var(--evening-blue);
 }
   
 #form{
@@ -25,22 +28,22 @@
 }
   
 #createButton{
-    margin-left: 5%;
-    margin-bottom: 0%;
-    border-radius: 25px;
     background-color: var(--bluestone);
-    /* background-color: var(--navy); */
-    color: var(--warm-white);
-    font-size: 14px;
-    padding: 3%;
-    width: 10%;
+    color: var(--evening-blue);
+    /* color: var(--warm-white); */
+    font-size: 18px;
+    width: 100%;
+    height: 6%;
 }
   
 #formHeader{
-    font-family: proxima-nova, sans-serif;
+    font-family: operetta-8, serif;
+    font-weight: 200;
     font-style: normal;
-    font-weight: 300;
-    font-size: 24px;
+    /* font-family: proxima-nova, sans-serif;
+    font-style: normal;
+    font-weight: 300; */
+    font-size: 1.2rem;
 }
 .activity{
     font-size: 12px;
@@ -51,6 +54,10 @@
     height: 40px;
     border-radius: 5px;
     background-color: #d2d2d2;
-    color: #4E4A63;
-    font-size: 14px;
+    color: var(--evening-blue);
+    /* color: #4E4A63; */
+    font-size: 1.2rem;
+    font-family: operetta-8, serif;
+    font-weight: 200;
+    font-style: normal;
 }
